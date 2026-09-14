@@ -39,39 +39,14 @@ CI/CD**
 | Quality Gate         |  **Evaluation threshold**   |   Fail PR/build when RAG quality regresses |
 
 
-There are **three maturity levels** described in the video.
+We can build this system under 3 stages.
 
-## Phase 1 --- Basic RAG
+## Phase 1 - Basic RAG
 
-The first implementation is:
+The first implementation is,
 
-``` text
-PDF / Markdown / Web
-        │
-        ▼
- Document Loader
-        │
-        ▼
- Chunking
- 500–800 tokens
- ~100 overlap
-        │
-        ▼
- Embedding Model
-        │
-        ▼
-    ChromaDB
-        │
-        ▼
- Semantic Search
-     Top-K
-        │
-        ▼
-       LLM
-        │
-        ▼
- Answer + Citations
-```
+<img width="1199" height="1312" alt="image" src="https://github.com/user-attachments/assets/5be3d916-7d40-4fba-a020-2e31a39b7aff" />
+
 
 For example, the user asks:
 
