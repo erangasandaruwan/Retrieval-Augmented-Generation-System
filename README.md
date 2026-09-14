@@ -1,8 +1,9 @@
-# RAG System --- Key Technologies and Architecture
+# RAG System  
+### The Key Technologies and Architecture
 
-This section describes how to build a **RAG (Retrieval-Augmented Generation) system**, rather than a simple "chat with PDF" demo.
+This article describes how to build a **RAG (Retrieval-Augmented Generation) system**, rather than a simple "chat with PDF/HTML" demo.
 
-The overall architecture is:
+Here the overall architecture is:
 
 **Documents → Parsing → Chunking → Embeddings → Vector DB → Hybrid
 Retrieval → Re-ranking → LLM → Citation/Validation → Evaluation →
@@ -10,83 +11,33 @@ CI/CD**
 
 ## Key Technologies and Concepts
 
-  -------------------------------------------------------------------------
-  Area                    Technology / Concept    Purpose
-  ----------------------- ----------------------- -------------------------
-  AI Architecture         **RAG**                 Ground LLM answers in
-                                                  your own documents
 
-  Input                   PDF, Markdown, Web      Knowledge sources
-                          pages                   
+|Area                  | Technology / Concept | Purpose              |
+|----------------------|----------------------|----------------------|
+| AI Architecture      |  **RAG**             |   Ground LLM answers in your own documents |
+| Input                |  PDF, Markdown, Web  |   Knowledge sources pages  |                 
+| Processing           |  **Chunking**        |   Break documents into ~500--800 token sections |
+| Chunking             |  **~100-token overlap** | Preserve context across chunk boundaries |
+| AI                   |  **Embedding model** |   Convert text into vectors representing semantic meaning |
+| Vector DB            |  **ChromaDB**        |   Store and search embeddings |
+| Vector DB            |  **Weaviate**        |   Alternative production-oriented vector database |
+| Retrieval            |  **Vector/Semantic Search**   |   Find documents based on meaning |                                
+| Retrieval            |  **BM25**            |   Traditional keyword-based retrieval |
+| Retrieval            |  **Hybrid Search**   |   Combine BM25 + vector search |
+| Ranking              |  **Cross-encoder re-ranker**  |   Re-score retrieved chunks for better relevance |
+| Re-ranking           |  **Cohere Rerank**   |   Managed re-ranking model/API |
+| Re-ranking           |  **Sentence Transformers**    |   Open-source cross-encoder/reranking models |
+| Orchestration        |  **LangChain**       |   Build RAG pipelines |
+| Orchestration        |  **LangGraph**       |   Build more complex/stateful AI workflows |
+| Reliability          |  **Citation enforcement**    |   Require answers to be supported by retrieved evidence |
+| Reliability          |  **Abstention / refusal**    |   Don't answer when evidence is insufficient |
+| Prompt Engineering   |  **Versioned prompt configuration**  |   Treat prompts as controlled application artifacts |
+| Evaluation           |  **Golden dataset**  |   50--200 manually verified Q&A examples |
+| Evaluation           |  **RAGAS**           |   Evaluate RAG quality |
+| Evaluation metric    |  **Faithfulness**    |   Check whether generated claims are supported by retrieved context |
+| DevOps               |  **CI pipeline**     |   Automatically run AI evaluations |
+| Quality Gate         |  **Evaluation threshold**   |   Fail PR/build when RAG quality regresses |
 
-  Processing              **Chunking**            Break documents into
-                                                  \~500--800 token sections
-
-  Chunking                **\~100-token overlap** Preserve context across
-                                                  chunk boundaries
-
-  AI                      **Embedding model**     Convert text into vectors
-                                                  representing semantic
-                                                  meaning
-
-  Vector DB               **ChromaDB**            Store and search
-                                                  embeddings
-
-  Vector DB               **Weaviate**            Alternative
-                                                  production-oriented
-                                                  vector database
-
-  Retrieval               **Vector/Semantic       Find documents based on
-                          Search**                meaning
-
-  Retrieval               **BM25**                Traditional keyword-based
-                                                  retrieval
-
-  Retrieval               **Hybrid Search**       Combine BM25 + vector
-                                                  search
-
-  Ranking                 **Cross-encoder         Re-score retrieved chunks
-                          re-ranker**             for better relevance
-
-  Re-ranking              **Cohere Rerank**       Managed re-ranking
-                                                  model/API
-
-  Re-ranking              **Sentence              Open-source
-                          Transformers**          cross-encoder/reranking
-                                                  models
-
-  Orchestration           **LangChain**           Build RAG pipelines
-
-  Orchestration           **LangGraph**           Build more
-                                                  complex/stateful AI
-                                                  workflows
-
-  Reliability             **Citation              Require answers to be
-                          enforcement**           supported by retrieved
-                                                  evidence
-
-  Reliability             **Abstention /          Don't answer when
-                          refusal**               evidence is insufficient
-
-  Prompt Engineering      **Versioned prompt      Treat prompts as
-                          configuration**         controlled application
-                                                  artifacts
-
-  Evaluation              **Golden dataset**      50--200 manually verified
-                                                  Q&A examples
-
-  Evaluation              **RAGAS**               Evaluate RAG quality
-
-  Evaluation metric       **Faithfulness**        Check whether generated
-                                                  claims are supported by
-                                                  retrieved context
-
-  DevOps                  **CI pipeline**         Automatically run AI
-                                                  evaluations
-
-  Quality Gate            **Evaluation            Fail PR/build when RAG
-                          threshold**             quality regresses
-  -------------------------------------------------------------------------
 
 There are **three maturity levels** described in the video.
 
