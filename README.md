@@ -138,48 +138,18 @@ Think of it as automated regression testing for your AI/RAG application.
 
 For example:
 
-  Question                           Expected Answer   Expected Source
+  | Question                        |  Expected Answer |  Expected Source |
   ---------------------------------- ----------------- -----------------
-  What is the cancellation period?   30 days           Contract §8.2
-  Who approves refunds?              Finance Manager   Policy §12
-  What is the maximum claim?         \$10,000          Policy §14
+  | What is the cancellation period? | 30 days          |  Contract §8.2 |
+  | Who approves refunds?            | Finance Manager  |  Policy §12    |
+  | What is the maximum claim?       | \$10,000         |  Policy §14    |
 
 You might maintain **50--200 verified questions**.
 
 Then every change to the system runs automated RAG evaluation.
 
-``` text
-Developer
-    │
-    ▼
-Pull Request
-    │
-    ▼
-CI Pipeline
-    │
-    ▼
-Build RAG
-    │
-    ▼
-Run Golden Dataset
-    │
-    ▼
-RAGAS Evaluation
-    │
-    ├── Faithfulness
-    ├── Answer Relevance
-    ├── Context Precision
-    └── Context Recall
-    │
-    ▼
-Quality Threshold
-    │
- ┌──┴───┐
- ▼      ▼
-PASS    FAIL
- │       │
-Merge   Block PR
-```
+<img width="1189" height="1323" alt="image" src="https://github.com/user-attachments/assets/78cdad03-3eb6-4f7b-9452-efadb486d7b1" />
+
 
 For example, you could define:
 
@@ -211,113 +181,26 @@ simply demonstrating that an LLM can answer questions.
 A practical implementation of the project described in the video could
 look like:
 
-``` text
-Frontend
-   │
-   ▼
-React / Angular
-   │
-   ▼
-ASP.NET Core / FastAPI
-   │
-   ▼
-LangGraph
-   │
-   ├── Query Processing
-   ├── BM25 Retrieval
-   ├── Vector Retrieval
-   ├── Hybrid Ranking
-   ├── Cross Encoder
-   └── Citation Validation
-   │
-   ▼
-LLM
-Azure OpenAI / OpenAI
-   │
-   ▼
-Answer + Sources
-```
+<img width="1199" height="1312" alt="image" src="https://github.com/user-attachments/assets/f7b58ee3-56b3-4739-a5d6-f7dfda69f5c7" />
+
 
 ### Data Layer
 
-``` text
-Documents
-   │
-   ▼
-Parser
-   │
-   ▼
-Chunker
-   │
-   ▼
-Embedding Model
-   │
-   ▼
-ChromaDB / Weaviate
-```
+<img width="1160" height="1355" alt="image" src="https://github.com/user-attachments/assets/f1bc3dd5-ba2b-4aad-9653-4fecdc9da641" />
+
 
 ### Engineering / DevOps Layer
 
-``` text
-Git
- │
- ▼
-Pull Request
- │
- ▼
-Azure DevOps / GitHub Actions
- │
- ▼
-RAGAS Evaluation
- │
- ▼
-Quality Gate
- │
- ▼
-Docker
- │
- ▼
-AKS / Kubernetes
-```
+<img width="1226" height="1283" alt="image" src="https://github.com/user-attachments/assets/81bf599c-7800-4c12-bd53-1807e23b164a" />
+
 
 ## Azure/.NET-Oriented Implementation
 
 For an engineer with strong **.NET, Azure, AKS, Azure DevOps and AI
 development** experience, the generic architecture can be adapted to:
 
-``` text
-Angular / React
-       │
-       ▼
-ASP.NET Core Web API
-       │
-       ▼
-LangGraph Python Service
-       │
-       ▼
-Azure OpenAI
-       │
-       ▼
-Azure AI Search
-       │
-       ▼
-Cohere / SentenceTransformer Re-ranker
-       │
-       ▼
-RAGAS Evaluation
-       │
-       ▼
-Docker
-       │
-       ▼
-AKS
-       │
-       ▼
-Azure DevOps CI/CD
-       │
-       ▼
-OpenTelemetry / Datadog
-```
+<img width="1145" height="1374" alt="image" src="https://github.com/user-attachments/assets/da30f4ea-bab4-4112-80c8-e956e48eec91" />
+
 
 This makes the project demonstrate more than RAG or prompt engineering.
 It demonstrates:
