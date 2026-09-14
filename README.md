@@ -131,6 +131,11 @@ applications.
 
 Create a **Golden Evaluation Dataset**.
 
+What is a Golden Evaluation Dataset ?
+A Golden Evaluation Dataset (often called a golden dataset, gold set, or evaluation set) is a collection of carefully verified questions and expected answers/evidence that you use to test whether your RAG system is still producing correct results.
+
+Think of it as automated regression testing for your AI/RAG application.
+
 For example:
 
   Question                           Expected Answer   Expected Source
