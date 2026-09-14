@@ -67,47 +67,17 @@ You return something more like:
 
 That makes the RAG output traceable.
 
-## Phase 2 --- Production-Quality Retrieval
+
+## Phase 2 - Advance and Quality Retrieval
 
 This is one of the most technically important parts of the approach.
 
 Instead of relying purely on vector search:
 
-``` text
-                    User Question
-                          │
-                 ┌────────┴────────┐
-                 ▼                 ▼
-             BM25 Search       Vector Search
-             keywords          semantic
-                 │                 │
-                 └────────┬────────┘
-                          ▼
-                  Hybrid Retrieval
-                          │
-                          ▼
-                    Top Candidates
-                          │
-                          ▼
-                  Cross Encoder
-                     Re-ranker
-                          │
-                          ▼
-                  Best Documents
-                          │
-                          ▼
-                         LLM
-                          │
-                          ▼
-                Evidence Validation
-                          │
-                 ┌────────┴────────┐
-                 ▼                 ▼
-             Supported        Unsupported
-                 │                 │
-                 ▼                 ▼
-          Answer + citation   Decline answer
-```
+<img width="1200" height="1310" alt="image" src="https://github.com/user-attachments/assets/57b4cb10-165f-405e-8c6b-11821f73e9f1" />
+
+### What is BM25 search ?
+BM25 (Best Matching 25) is a ranking algorithm used by search engines to score and order documents based on their relevance to a user's search query. It is the gold standard for traditional keyword (lexical) search and powers systems like Elasticsearch, Apache Lucene, and OpenSearch.
 
 ### Why BM25 + Vector Search?
 
@@ -154,7 +124,7 @@ Query + Document 3 → relevance score
 
 and reorders the candidate chunks according to relevance.
 
-## Phase 3 --- Production AI Engineering
+## Phase 3 - Production AI Engineering
 
 This is the part that differentiates the project from many portfolio RAG
 applications.
