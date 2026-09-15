@@ -1,4 +1,4 @@
-# RAG System  
+# Retrieval-Augmented Generation (RAG) System  
 ### The Key Technologies and Architecture
 
 This article describes how to build a **RAG (Retrieval-Augmented Generation) system**, rather than a simple "chat with PDF/HTML" demo.
