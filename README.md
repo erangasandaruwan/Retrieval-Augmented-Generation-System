@@ -9,7 +9,7 @@ Here the overall architecture is:
 Retrieval → Re-ranking → LLM → Citation/Validation → Evaluation →
 CI/CD**
 
-🏗️ Architecture & Component Breakdown 
+🏗️ Architecture & Component Breakdown -> 
 https://github.com/erangasandaruwan/Retrieval-Augmented-Generation-System/blob/main/SOLUTION_OVERVIEW.md 
 
 ## Key Technologies and Concepts
