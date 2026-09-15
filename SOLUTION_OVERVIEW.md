@@ -1,4 +1,4 @@
-# Production Retrieval-Augmented Generation (RAG) Solution Overview
+# Retrieval-Augmented Generation (RAG) Solution Overview
 
 The complete enterprise-grade **Retrieval-Augmented Generation (RAG)** solution has been generated based on the architecture described in the repository.
 
